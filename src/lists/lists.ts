@@ -1,3 +1,4 @@
+import { Contacts } from '../contacts/contacts';
 import { DoubleZero } from '../core';
 import { ListMeta } from '../types';
 import { AddContactParams, List, ListContact, UpdateListParams } from './types';
@@ -14,9 +15,7 @@ export class Lists {
   }
 
   async get(id: string): Promise<List> {
-    const data = await this.doublezero.get<{ data: List }>(`/lists/${id}`);
-
-    return data.data;
+    return await this.doublezero.get<{ data: List }>(`/lists/${id}`);
   }
 
   async update(id: string, params: UpdateListParams): Promise<List> {
@@ -29,19 +28,21 @@ export class Lists {
   }
 
   async delete(id: string): Promise<void> {
-    await this.doublezero.delete(`/lists/${id}`);
+    return await this.doublezero.delete(`/lists/${id}`);
+  }
+
+  async create(params: { name: string; description: string }): Promise<List> {
+    return await this.doublezero.post(`/lists/`, params);
   }
 
   async addContact(
     listId: string,
     params: AddContactParams
   ): Promise<ListContact> {
-    const data = await this.doublezero.post<{ data: ListContact }>(
+    return await this.doublezero.post<{ data: ListContact }>(
       `/lists/${listId}/contacts`,
       params
     );
-
-    return data.data;
   }
 
   async removeContact(
