@@ -1,5 +1,5 @@
 {
-  "name": "00-js",
+  "name": "00-ts",
   "version": "0.4.1",
   "description": "Node.js library for interacting with the 00 API.",
   "main": "dist/index.js",
@@ -14,7 +14,8 @@
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "release": "pnpm run build && changeset publish",
-    "lint": "tsc"
+    "lint": "tsc",
+    "test": "vitest"
   },
   "repository": {
     "type": "git",
@@ -30,8 +31,14 @@
   "license": "MIT",
   "devDependencies": {
     "@changesets/cli": "^2.27.7",
+    "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "^20.14.10",
     "tsup": "^8.1.0",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.8"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^9.0.2"
   }
 }
