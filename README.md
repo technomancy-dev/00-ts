@@ -1,10 +1,6 @@
 # 00 Node.js SDK
 
-Community made SDK for interacting with the [00 (short for DoubleZero)](https://www.double-zero.cloud/) API.
-
-This package is inspired by the official Resend Node.js SDK.
-
-**This package is not officially maintained by 00.**
+SDK for interacting with the [00 (short for DoubleZero)](https://www.double-zero.cloud/) API.
 
 ## Install
 
@@ -43,7 +39,3 @@ await doubleZero.emails.send({
   html: '<h1>Hello world from 00!</h1>',
 });
 ```
-
-## License
-
-MIT License
